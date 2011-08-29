@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+# prints string eval of the input
+
+Dir[ File.dirname(__FILE__) + '/../config/*.rb', File.dirname(__FILE__) + '/../lib/*.rb' ].each { |file| require File.expand_path file } # load all modules
+include GeektoolScripts
+
+input = ARGV.join ' '
+
+if input == ''
+  # print help info if no input
+  puts "Description: prints string eval of the input"
+  puts "Usage: puts ruby_string_expression"
+  puts "Exmaples:"
+  puts "  puts Hello, world! # => #{string_eval 'Hello, world!'}"
+  puts "  puts \"Time: \#{now 'hh:mm TT'}\" # => #{string_eval "Time: \#{now 'hh:mm TT'}"}"
+  puts ""
+else
+  puts string_eval input
+end

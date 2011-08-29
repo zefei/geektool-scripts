@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+# prints weather infomation using Yahoo! Weather, also caches files (RSS, image icon) to local folder
+
+Dir[ File.dirname(__FILE__) + '/../config/*.rb', File.dirname(__FILE__) + '/../lib/*.rb' ].each { |file| require File.expand_path file } # load all modules
+include GeektoolScripts
+
+input = ARGV.join ' '
+
+if input == ''
+  # print help info if no input
+  puts "Description: prints weather infomation using Yahoo! Weather, also caches files (RSS, image icon) to local folder"
+  puts "Usage: weather weather_format"
+  puts "Config file: config/weather.rb"
+  puts "Exmaples:"
+  puts "  weather CCCC, TTTT # => #{weather 'CCCC, TTTT'}"
+  puts "  weather High: HHH, Low: LLL # => #{weather 'High: HHH, Low: LLL'}"
+  puts "Formats:"
+  puts "  weather CCCC # => #{weather 'CCCC'} (text description of current condition)"
+  puts "  weather TT TTT TTTT # => #{weather 'TT TTT TTTT'} (current temperature)"
+  puts "  weather HH HHH HHHH # => #{weather 'HH HHH HHHH'} (today's high)"
+  puts "  weather LL LLL LLLL # => #{weather 'LL LLL LLLL'} (today's low)"
+  puts ""
+else
+  puts weather input
+end

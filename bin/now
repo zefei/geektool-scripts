@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+# prints current date and time using conventional format input like 'MM/DD/YY', 'MMMM D, YYYY' or 'hh:mm'
+
+Dir[ File.dirname(__FILE__) + '/../config/*.rb', File.dirname(__FILE__) + '/../lib/*.rb' ].each { |file| require File.expand_path file } # load all modules
+include GeektoolScripts
+
+input = ARGV.join ' '
+
+if input == ''
+  # print help info if no input
+  puts "Description: prints current date and time using conventional format input like 'MM/DD/YY', 'MMMM D, YYYY' or 'hh:mm'"
+  puts "Usage: now date_time_format"
+  puts "Exmaples:"
+  puts "  now MM/DD/YYYY # => #{now 'MM/DD/YYYY'}"
+  puts "  now MMMM D, YYYY # => #{now 'MMMM D, YYYY'}"
+  puts "  now h:mm TT # => #{now 'h:mm TT'}"
+  puts "  now HH:mm:ss # => #{now 'HH:mm:ss'}"
+  puts "Formats:"
+  puts "  now YYYY YY # => #{now 'YYYY YY'}"
+  puts "  now MMMM MMM MM M # => #{now 'MMMM MMM MM M'} (MM is zero-padded, M is not)"
+  puts "  now DDDD DDD DD D # => #{now 'DDDD DDD DD D'} (DD is zero-padded)"
+  puts "  now HH H hh h # => #{now 'HH H hh h'} (HH and H are 24-hour clock, hh and h are 12-hour; HH and hh are zero-padded)"
+  puts "  now TT T tt t # => #{now 'TT T tt t'}"
+  puts "  now mm m # => #{now 'mm m'} (mm is zero-padded)"
+  puts "  now ss s # => #{now 'ss s'} (ss is zero-padded)"
+  puts ""
+else
+  puts now input
+end
