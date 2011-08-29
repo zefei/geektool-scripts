@@ -6,26 +6,25 @@ This is a collection of my ruby scripts to be used with Geektool. Each script ta
 puts
 ----
 
-* Description: prints string eval of the input
-* Usage: puts ruby_string_expression
-* Exmaples:
-
+Description: prints string eval of the input  
+Usage: puts ruby_string_expression  
+Exmaples:  
     puts Hello, world! # => Hello, world!
     puts "Time: #{now 'hh:mm TT'}" # => Time: 03:32 AM
 
 now
 ---
 
-* Description: prints current date and time using conventional format input like 'MM/DD/YY', 'MMMM D, YYYY' or 'hh:mm'
-* Usage: now date_time_format
-* Exmaples:
+**Description**: prints current date and time using conventional format input like 'MM/DD/YY', 'MMMM D, YYYY' or 'hh:mm'  
+**Usage**: now date_time_format  
+**Exmaples**:  
 
     now MM/DD/YYYY # => 08/29/2011
     now MMMM D, YYYY # => August 29, 2011
     now h:mm TT # => 3:34 AM
     now HH:mm:ss # => 03:34:01
     
-* Formats:
+Formats:  
 
     now YYYY YY # => 2011 11
     now MMMM MMM MM M # => August Aug 08 8 (MM is zero-padded, M is not)
@@ -38,15 +37,15 @@ now
 weather
 -------
 
-* Description: prints weather infomation using Yahoo! Weather, also caches files (RSS, image icon) to local folder
-* Usage: weather weather_format
-* Config file: config/weather.rb
-* Exmaples:
+Description: prints weather infomation using Yahoo! Weather, also caches files (RSS, image icon) to local folder  
+Usage: weather weather_format  
+Config file: config/weather.rb  
+Exmaples:  
 
     weather CCCC, TTTT # => Fair, 66°F
     weather High: HHH, Low: LLL # => High: 87°, Low: 65°
 
-* Formats:
+Formats:  
 
     weather CCCC # => Fair (text description of current condition)
     weather TT TTT TTTT # => 66 66° 66°F (current temperature)
