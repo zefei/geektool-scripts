@@ -7,10 +7,10 @@ h2. puts
 Description: prints string eval of the input
 Usage: puts ruby_string_expression
 Exmaples:
-<code language='ruby'>
+<pre><code>
   puts Hello, world! # => Hello, world!
   puts "Time: #{now 'hh:mm TT'}" # => Time: 03:32 AM
-</code>
+</code></pre>
 
 h2. now
 
