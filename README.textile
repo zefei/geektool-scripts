@@ -7,22 +7,19 @@ h2. puts
 Description: prints string eval of the input
 Usage: puts ruby_string_expression
 Exmaples:
-<pre><code>
-puts Hello, world! # => Hello, world!
-puts "Time: #{now 'hh:mm TT'}" # => Time: 03:32 AM
-</code></pre>
+<pre><code>puts Hello, world! # => Hello, world!
+puts "Time: #{now 'hh:mm TT'}" # => Time: 03:32 AM</code></pre>
 
 h2. now
 
 Description: prints current date and time using conventional format input like 'MM/DD/YY', 'MMMM D, YYYY' or 'hh:mm'
 Usage: now date_time_format
 Exmaples:
-<code>
-  now MM/DD/YYYY # => 08/29/2011
-  now MMMM D, YYYY # => August 29, 2011
-  now h:mm TT # => 3:34 AM
-  now HH:mm:ss # => 03:34:01
-</code>
+<pre><code>
+now MM/DD/YYYY # => 08/29/2011
+now MMMM D, YYYY # => August 29, 2011
+now h:mm TT # => 3:34 AM
+now HH:mm:ss # => 03:34:01</code></pre>
 Formats:
 <code>
   now YYYY YY # => 2011 11
