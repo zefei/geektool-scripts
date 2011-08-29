@@ -9,15 +9,16 @@ puts
 Description: prints string eval of the input  
 Usage: puts ruby_string_expression  
 Exmaples:  
+
     puts Hello, world! # => Hello, world!
     puts "Time: #{now 'hh:mm TT'}" # => Time: 03:32 AM
 
 now
 ---
 
-**Description**: prints current date and time using conventional format input like 'MM/DD/YY', 'MMMM D, YYYY' or 'hh:mm'  
-**Usage**: now date_time_format  
-**Exmaples**:  
+Description: prints current date and time using conventional format input like 'MM/DD/YY', 'MMMM D, YYYY' or 'hh:mm'  
+Usage: now date_time_format  
+Exmaples:  
 
     now MM/DD/YYYY # => 08/29/2011
     now MMMM D, YYYY # => August 29, 2011
