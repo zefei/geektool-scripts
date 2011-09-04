@@ -78,7 +78,9 @@ Exmaples:
 
     mem Memory: USEDM used, FREEM free, TOTALG in total # => Memory: 8093M used, 98M free, 8.0G in total
     mem MEM '[USED20|%]' USED% # => MEM [||||||||||||||||||| ] 98.8%
+
 Formats:
+
     mem USED USEDM USEDG USED% # => 8100 8100M 7.91G 98.9%
     mem FREE FREEM FREEG FREE% # => 90 90M 0.09G 1.1%
     mem TOTAL TOTALM TOTALG # => 8190 8190M 8.0G 
