@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+# prints memory utilization according to 'top -l 1'
+
+Dir[ File.dirname(__FILE__) + '/../config/*.rb', File.dirname(__FILE__) + '/../lib/*.rb' ].each { |file| require File.expand_path file } # load all modules
+include GeektoolScripts
+
+input = ARGV.join ' '
+
+if input == ''
+  # print help info if no input
+  puts "Description: prints memory utilization according to 'top -l 1'"
+  puts "Usage: mem memory_format"
+  puts "Exmaples:"
+  puts "  mem Memory: USEDM used, FREEM free, TOTALG in total # => #{mem 'Memory: USEDM used, FREEM free, TOTALG in total'}"
+  puts "  mem MEM '[USED20|%]' USED% # => #{mem 'MEM [USED20|%] USED%'}"
+  puts "Formats:"
+  puts "  mem USED USEDM USEDG USED% # => #{mem 'USED USEDM USEDG USED%'}"
+  puts "  mem FREE FREEM FREEG FREE% # => #{mem 'FREE FREEM FREEG FREE%'}"
+  puts "  mem TOTAL TOTALM TOTALG # => #{mem 'TOTAL TOTALM TOTALG '}"
+  puts "  mem '[USED20|%] or |USED15*%|' # => #{mem '[USED20|%] or |USED15*%|'}"
+  puts "    ('USED' followed by length of pencentage bar, filling character, and '%')"
+  puts ""
+else
+  puts mem input
+end

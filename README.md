@@ -52,3 +52,35 @@ Formats:
     weather TT TTT TTTT # => 66 66° 66°F (current temperature)
     weather HH HHH HHHH # => 87 87° 87°F (today's high)
     weather LL LLL LLLL # => 65 65° 65°F (today's low)
+
+cpu
+---
+
+Description: prints CPU utilization according to 'top -l 2'
+Usage: cpu cpu_format
+Exmaples:
+
+    cpu CPU: USED used, IDLE idle # => CPU: 8.81% used, 91.19% idle
+    cpu CPU '[USED20|%]' USED # => CPU [|                   ] 6.34%
+
+Formats:
+
+    cpu USED IDLE # => 8.64% 91.36%
+    cpu '[USED20|%] or |USED15*%|' # => [|                   ] or |               |
+      ('USED' followed by length of pencentage bar, filling character, and '%')
+
+mem
+---
+
+Description: prints memory utilization according to 'top -l 1'
+Usage: mem memory_format
+Exmaples:
+
+    mem Memory: USEDM used, FREEM free, TOTALG in total # => Memory: 8093M used, 98M free, 8.0G in total
+    mem MEM '[USED20|%]' USED% # => MEM [||||||||||||||||||| ] 98.8%
+Formats:
+    mem USED USEDM USEDG USED% # => 8100 8100M 7.91G 98.9%
+    mem FREE FREEM FREEG FREE% # => 90 90M 0.09G 1.1%
+    mem TOTAL TOTALM TOTALG # => 8190 8190M 8.0G 
+    mem '[USED20|%] or |USED15*%|' # => [||||||||||||||||||| ] or |************** |
+      ('USED' followed by length of pencentage bar, filling character, and '%')
