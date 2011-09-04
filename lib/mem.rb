@@ -3,8 +3,10 @@ module GeektoolScripts
     # a wrapper around top, returns memory utilization
 
     top = `top -l 1`
-    used, free = top.scan(/PhysMem: .* (.*?) used, (.*?) free/)[0].map { |x| x.to_i } # used and free memory in MB
+    inactive, used, free = top.scan(/PhysMem: .* (.*?) inactive, (.*?) used, (.*?) free/)[0].map { |x| x.to_i } # used and free memory in MB
     total = used + free
+    used -= inactive
+    free += inactive
     usedp = round(used.to_f / total * 100, 2) # used%
     freep = round(free.to_f / total * 100, 2) # free%
 
