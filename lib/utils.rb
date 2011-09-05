@@ -34,11 +34,13 @@ module GeektoolScripts
     return ret
   end
 
-  def to_bar(percent, length = 10, bar = '|')
-    # make a percentage bar from percentage, bar length and bar character
+  def to_bar(percent, length = 10, filling = '|', spacing = '-')
+    # make a percentage bar from percentage, bar length, filling character, and spacing character
+    filling = '|' if filling == ''
+    spacing = '-' if spacing == ''
     percent = percent.to_f / 100
     percent = 1 if percent > 1
-    bar * (percent * length.to_i) + ' ' * ((1 - percent) * length.to_i).ceil
+    filling * (percent * length.to_i) + spacing * ((1 - percent) * length.to_i).ceil
   end
 
   def round(float, decimal = 0)

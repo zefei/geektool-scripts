@@ -10,7 +10,7 @@ module GeektoolScripts
     usedp = round(used.to_f / total * 100, 2) # used%
     freep = round(free.to_f / total * 100, 2) # free%
 
-    barmap = str.scan(/(USED(\d+?)(.)%)/).map { |x| [ x[0], to_bar(usedp, x[1], x[2]) ] } # percentage bar
+    barmap = str.scan(/(USED(\d+)(.?)(.?)%)/).map { |x| [ x[0], to_bar(usedp, x[1], x[2], x[3]) ] } # percentage bar
 
     map = [ [ 'USED%', usedp.to_s + '%' ],
             [ 'USEDM', used.to_s + 'M' ],

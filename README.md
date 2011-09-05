@@ -60,14 +60,21 @@ Description: prints CPU utilization according to 'top -l 2'
 Usage: cpu cpu_format
 Exmaples:
 
-    cpu CPU: USED used, IDLE idle # => CPU: 8.81% used, 91.19% idle
-    cpu CPU '[USED20|%]' USED # => CPU [|                   ] 6.34%
+    cpu CPU: USED used, IDLE idle # => CPU: 9.32% used, 90.68% idle
+    cpu CPU '[USED20|-%]' USED # => CPU [|-------------------] 9.84%
 
 Formats:
 
-    cpu USED IDLE # => 8.64% 91.36%
-    cpu '[USED20|%] or |USED15*%|' # => [|                   ] or |               |
-      ('USED' followed by length of pencentage bar, filling character, and '%')
+    cpu USED IDLE # => 6.14% 93.86%
+    cpu '1:[USED15%]\n2:|USED10*%|\n3:USED20>=%' # => (see percentage bar format)
+      1:[---------------]
+      2:|----------|
+      3:>===================
+
+Percentage Bar Format:
+
+    USED<bar_length>[<filling_character>[<spacing_character>]]%
+    Filling character (optional) is default to '|', spacing character (optional) is default to '-'
 
 mem
 ---
@@ -76,13 +83,20 @@ Description: prints memory utilization according to 'top -l 1'
 Usage: mem memory_format
 Exmaples:
 
-    mem Memory: USEDM used, FREEM free, TOTALG in total # => Memory: 8093M used, 98M free, 8.0G in total
-    mem MEM '[USED20|%]' USED% # => MEM [||||||||||||||||||| ] 98.8%
+    mem Memory: USEDM used, FREEM free, TOTALG in total # => Memory: 5633M used, 2558M free, 8.0G in total
+    mem MEM '[USED20|-%]' USED% # => MEM [|||||||||||||-------] 68.78%
 
 Formats:
 
-    mem USED USEDM USEDG USED% # => 8100 8100M 7.91G 98.9%
-    mem FREE FREEM FREEG FREE% # => 90 90M 0.09G 1.1%
-    mem TOTAL TOTALM TOTALG # => 8190 8190M 8.0G 
-    mem '[USED20|%] or |USED15*%|' # => [||||||||||||||||||| ] or |************** |
-      ('USED' followed by length of pencentage bar, filling character, and '%')
+    mem USED USEDM USEDG USED% # => 5633 5633M 5.5G 68.78%
+    mem FREE FREEM FREEG FREE% # => 2552 2552M 2.49G 31.16%
+    mem TOTAL TOTALM TOTALG # => 8191 8191M 8.0G 
+    mem '1:[USED15%]\n2:|USED10*%|\n3:USED20>=%' # => (see percentage bar format)
+      1:[||||||||||-----]
+      2:|******----|
+      3:>>>>>>>>>>>>>=======
+
+Percentage Bar Format:
+
+    USED<bar_length>[<filling_character>[<spacing_character>]]%
+    Filling character (optional) is default to '|', spacing character (optional) is default to '-'
