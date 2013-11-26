@@ -2,11 +2,10 @@ module GeektoolScripts
   def mem(str = '') 
     # a wrapper around top, returns memory utilization
 
-    top = `top -l 1`
-    inactive, used, free = top.scan(/PhysMem: .* (.*?) inactive, (.*?) used, (.*?) free/)[0].map { |x| x.to_i } # used and free memory in MB
+    top = `top -l 1 | grep PhysMem`
+    used, wired, free = top.scan(/\d+/).map { |x| x.to_i }
+    used += wired
     total = used + free
-    used -= inactive
-    free += inactive
     usedp = round(used.to_f / total * 100, 2) # used%
     freep = round(free.to_f / total * 100, 2) # free%
 

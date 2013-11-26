@@ -4,9 +4,9 @@ require 'open-uri'
 module GeektoolScripts
   @@yahoo_weather_api_url = 'http://weather.yahooapis.com/forecastrss?w=#{woeid}&u=#{unit}'
 
-  def weather(str = '') 
+  def weather(str = '')
     # return weather infomation using Yahoo! Weather, also caches files (RSS, image icon) to local folder
-    
+
     woeid = @@yahoo_weather_url[/(\d*)\/$/, 1] || '' # location parameter
     unit = @@temperature_unit == :f ? 'f' : 'c' # unit parameter
     rss_url = string_eval @@yahoo_weather_api_url, binding
@@ -15,7 +15,7 @@ module GeektoolScripts
     icon_filepath = File.join @@cache_folder, 'weather.png'
 
     begin
-      if not File.directory? @@cache_folder 
+      if not File.directory? @@cache_folder
         # if cache folder doesn't exist, create it
         FileUtils.mkdir_p @@cache_folder
       end
@@ -44,7 +44,7 @@ module GeektoolScripts
     unit = rss[/<yweather:units.*?temperature="(.*?)".*?\/>/, 1] || ''
     high = rss[/<yweather:forecast.*?high="(.*?)".*?\/>/, 1] || ''
     low = rss[/<yweather:forecast.*?low="(.*?)".*?\/>/, 1] || ''
-    icon_url = page[/"forecast-icon".*?background:url\('(.*?)'\)/, 1] || ''
+    icon_url = page[/"current-weather".*?background:url\('(.*?)'\)/, 1] || ''
 
     begin
       # cache weather page and icon file
